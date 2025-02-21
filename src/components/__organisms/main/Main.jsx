@@ -8,7 +8,7 @@ import third_img from "../../../assets/images/RectangleCopy3.svg";
 import fourth_img from "../../../assets/images/RectangleCopy4.svg";
 import minus_img from "../../../assets/images/Group4.svg";
 import plus_img from "../../../assets/images/plus.svg";
-import white_cart from "../../../assets/images/shape.svg";
+import white_cart from "../../../assets/images/Shape.svg";
 import delete_img from "../../../assets/images/Mask2.svg";
 const Initialvalue = {
   count: 0,
