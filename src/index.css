@@ -1,1 +1,5 @@
 @import "tailwindcss";
+*{
+    box-sizing: border-box;
+    transition: all 1s ease-in-out;
+}

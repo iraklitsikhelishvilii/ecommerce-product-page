@@ -221,7 +221,7 @@ function Main() {
           <div className="w-full h-[1px] bg-[#E4E9F2] mt-[34px]  max-[500px]:hidden"></div>
         </header>
         <div
-          className={` z-4 bg-[#FFF] absolute top-0 left-0 flex h-[100vh] ${
+          className={` ease duration-[1s] z-4 bg-[#FFF] absolute top-0 left-0 flex h-[100vh] ${
             BurgerMenu ? "w-[250px] pl-[20px]" : "w-[0px] pl-[0px]"
           }`}
         >
