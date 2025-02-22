@@ -27,17 +27,37 @@ function Reducer(state, action) {
 }
 function Main() {
   const [mainimg, setmainimg] = useState(first_img);
+  const [opacity, setopacity] = useState("");
+  const [opacity2, setopacity2] = useState("");
+  const [opacity3, setopacity3] = useState("");
+  const [opacity4, setopacity4] = useState("");
   const FirstClick = () => {
     setmainimg(first_img);
+    setopacity("opacity-[0.5]");
+    setopacity2("opacity-[1]");
+    setopacity3("opacity-[1]");
+    setopacity4("opacity-[1]");
   };
   const SecondClick = () => {
     setmainimg(second_img);
+    setopacity2("opacity-[0.5]");
+    setopacity("opacity-[1]");
+    setopacity3("opacity-[1]");
+    setopacity4("opacity-[1]");
   };
   const ThirdClick = () => {
     setmainimg(third_img);
+    setopacity3("opacity-[0.5]");
+    setopacity("opacity-[1]");
+    setopacity2("opacity-[1]");
+    setopacity4("opacity-[1]");
   };
   const FourthClick = () => {
     setmainimg(fourth_img);
+    setopacity4("opacity-[0.5]");
+    setopacity("opacity-[1]");
+    setopacity2("opacity-[1]");
+    setopacity3("opacity-[1]");
   };
   const [state, dispath] = useReducer(Reducer, Initialvalue);
   const [array, setarray] = useState([]);
@@ -104,30 +124,39 @@ function Main() {
                 <img className="cursor-pointer" src={logo} alt="" />
               </div>
               <div className=" cursor-pointer flex items-center justify-center  gap-[32px]  max-[760px]:hidden">
-                <p className="cursor-pointer text-[15px] font-[400] text-[#69707D]">
+                <p className="  hover:border-b-[4px] border-b-[#FF7E1B] cursor-pointer text-[15px] font-[400] text-[#69707D]">
                   Collections
                 </p>
-                <p className="cursor-pointer text-[15px] font-[400] text-[#69707D]">
+                <p className="hover:border-b-[4px] border-b-[#FF7E1B] cursor-pointer text-[15px] font-[400] text-[#69707D]">
                   Men
                 </p>
-                <p className="cursor-pointer text-[15px] font-[400] text-[#69707D]">
+                <p className="hover:border-b-[4px] border-b-[#FF7E1B] cursor-pointer text-[15px] font-[400] text-[#69707D]">
                   Women
                 </p>
-                <p className="cursor-pointer text-[15px] font-[400] text-[#69707D]">
+                <p className="hover:border-b-[4px] border-b-[#FF7E1B] cursor-pointer text-[15px] font-[400] text-[#69707D]">
                   About
                 </p>
-                <p className="cursor-pointer text-[15px] font-[400] text-[#69707D]">
+                <p className="hover:border-b-[4px] border-b-[#FF7E1B] cursor-pointer text-[15px] font-[400] text-[#69707D]">
                   Contact
                 </p>
               </div>
             </div>
             <div className="relative flex gap-[45px]  max-[500px]:gap-[22px]">
-              <img
-                onClick={CartClicked}
-                className=" cursor-pointer"
-                src={shopping_cart}
-                alt=""
-              />
+              <div className="flex justify-center items-center relative">
+                {array.length > 0 && (
+                  <div className="w-[19px] h-[13px] rounded-[6.5px] bg-[#FF7E1B] flex justify-center items-center absolute top-[7px] right-[-7px] max-[500px]:top-[-6px] max-[500px]:left-[10px]">
+                    <p className="text-[10px] text-[#fff] font-[700]">
+                      {array.length}
+                    </p>
+                  </div>
+                )}
+                <img
+                  onClick={CartClicked}
+                  className=" cursor-pointer"
+                  src={shopping_cart}
+                  alt=""
+                />
+              </div>
               <img
                 className=" cursor-pointer w-[50px] h-[50px] max-[500px]:w-[24px]  max-[500px]:h-[24px] "
                 src={profile_img}
@@ -245,24 +274,24 @@ function Main() {
             <div className="mt-[32px] flex w-full justify-between max-[970px]:mt-[15px] max-[760px]:hidden">
               <img
                 onClick={FirstClick}
-                className=" w-[88px] h-[88px] cursor-pointer max-[970px]:w-[70px] "
+                className={`hover:opacity-[0.5] w-[88px] h-[88px] cursor-pointer max-[970px]:w-[70px] ${opacity}`}
                 src={first_img}
                 alt=""
               />
               <img
-                className="cursor-pointer max-[970px]:w-[70px]"
+                className={`hover:opacity-[0.5] cursor-pointer max-[970px]:w-[70px] ${opacity2}`}
                 onClick={SecondClick}
                 src={second_img}
                 alt=""
               />
               <img
-                className="cursor-pointer max-[970px]:w-[70px]"
+                className={`hover:opacity-[0.5] cursor-pointer max-[970px]:w-[70px] ${opacity3}`}
                 onClick={ThirdClick}
                 src={third_img}
                 alt=""
               />
               <img
-                className="cursor-pointer max-[970px]:w-[70px]"
+                className={`hover:opacity-[0.5] cursor-pointer max-[970px]:w-[70px] ${opacity4}`}
                 onClick={FourthClick}
                 src={fourth_img}
                 alt=""
@@ -318,7 +347,7 @@ function Main() {
               </div>
               <button
                 onClick={AddToCart}
-                className="flex px-[76px] h-[56px] items-center bg-[#FF7E1B] rounded-[10px] w-[272px] justify-between cursor-pointer max-[970px]:w-[200px] max-[970px]:px-[40px] max-[500px]:w-[100%] max-[500px]:px-[104px]"
+                className=" hover:opacity-[0.5] flex px-[76px] h-[56px] items-center bg-[#FF7E1B] rounded-[10px] w-[272px] justify-between cursor-pointer max-[970px]:w-[200px] max-[970px]:px-[40px] max-[500px]:w-[100%] max-[500px]:px-[104px]"
               >
                 <img src={white_cart} alt="" />
                 <p className="text-[16px] font-[700] text-[#fff]">
